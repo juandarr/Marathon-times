@@ -1,40 +1,60 @@
----
-layout: default
----
-
-<div class="home">
-
-
-  {% for post in site.posts%}
-  <div class="post postContent">
-    <div  class="postDate"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Living at the edge!</title>
+</head>
+<body>
+    <div class="ui pink label" style="margin-top: 10px;">   
+      <h1 class="ui massive basic purple label">Living at the edge</h1>
     </div>
-    <div class="postDay">
-      {{post.tag}}
+    <div class="ui segment grid container">
+      <div class="eight wide column">
+        <h1>To run the race</h1>
+        <div class ="four column row" id="clockdiv">
+            <div class="column">
+              <span class="days"></span>
+              <div class="smalltext">Days</div>
+            </div>
+            <div class="column">
+              <span class="hours"></span>
+              <div class="smalltext">Hours</div>
+            </div>
+            <div class="column">
+              <span class="minutes"></span>
+              <div class="smalltext">Minutes</div>
+            </div>
+            <div class="column">
+              <span class="seconds"></span>
+              <div class="smalltext">Seconds</div>
+            </div>
+        </div>
+      </div>
+      <div class="eight wide column">
+        <div>
+          <h1>Progress of the goal</h1>
+
+           <div class="ui one statistics">
+          <div class="statistic">
+            <div class="value">
+              <i class="violet loading rocket icon"></i> <a class="" style="color:orange;" id="uiPercent">50%</a>
+            </div>
+            <div class="label">
+              Progress
+            </div>
+          </div>
+        </div>
+          <!--<a class="ui massive orange circular label" id="uiPercent">50%</a>-->
+        </div>
+      </div>
     </div>
-    <br>
-    <div class="postTitle">
-    <a class='postLink' href="{{post.url}}">{{post.title}}</a>
-    </div>
-    <div class="postExt">
-   {{ post.content | strip_html | truncatewords:20}}
-    </div>
-  </div>
-
-
-  {% endfor %}
-  <!--<ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta-main">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link-main" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>-->
-
-
-
-</div>
+<script type="text/javascript" src="clock.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    
+</body>
+</html>
